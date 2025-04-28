@@ -9,7 +9,7 @@ namespace Measurement.Tests
         [TestMethod]
         public void CalculateIGL_ReturnsTrue_WhenAirQualityIsHigh()
         {
-            var measurement = new WeatherStationData.Measurement(10, 50, 20, 120, 5);
+            var measurement = new WeatherStationData.Measurement(10, 50, 20, 120, 2);
             Assert.IsTrue(measurement.calculateIGL());
         }
 
