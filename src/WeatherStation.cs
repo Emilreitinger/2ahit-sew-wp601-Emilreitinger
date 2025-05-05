@@ -14,6 +14,15 @@ namespace WeatherStationData
 
         public WeatherStation(DateTime date, string location, string stationID, string operatorName, double altitude, string region)
         {
+            if (string.IsNullOrEmpty(location))
+            {
+                throw new ArgumentException("Der Standort darf nicht null oder leer sein.", nameof(location));
+            }
+
+            if (string.IsNullOrEmpty(stationID))
+            {
+                throw new ArgumentException("Die Station-ID darf nicht null oder leer sein.", nameof(stationID));
+            }
             _date = date;
             _location = location;
             _stationID = stationID;

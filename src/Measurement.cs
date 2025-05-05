@@ -10,6 +10,30 @@
 
         public Measurement(double windSpeed, double humidity, double temperature, double airQuality, double uvIndex)
         {
+            if (windSpeed < 0)
+            {
+                throw new ArgumentException("Windgeschwindigkeit darf nicht negativ sein.", nameof(windSpeed));
+            }
+
+            if (humidity < 0 || humidity > 100)
+            {
+                throw new ArgumentException("Luftfeuchtigkeit muss zwischen 0 und 100 liegen.", nameof(humidity));
+            }
+
+            if (temperature < -100 || temperature > 100)
+            {
+                throw new ArgumentException("Temperatur muss zwischen -100 und 100 liegen.", nameof(temperature));
+            }
+
+            if (airQuality < 0)
+            {
+                throw new ArgumentException("Luftqualität darf nicht negativ sein.", nameof(airQuality));
+            }
+
+            if (uvIndex < 0)
+            {
+                throw new ArgumentException("UV-Index darf nicht negativ sein.", nameof(uvIndex));
+            }
             _windSpeed = windSpeed;
             _humidity = humidity;
             _temperature = temperature;
@@ -19,7 +43,7 @@
         public double WindSpeed { get; set; }
         public double Humidity { get; set; }
         public double Temperature { get; set; }
-        public double AirQuality { get; set;}
+        public double AirQuality { get; set; }
         public double UVIndex { get; set; }
 
         public bool calculateIGL() => _airQuality > 100;
