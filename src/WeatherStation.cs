@@ -1,4 +1,6 @@
-﻿namespace WeatherStationData
+﻿using System;
+
+namespace WeatherStationData
 {
     public class WeatherStation
     {
