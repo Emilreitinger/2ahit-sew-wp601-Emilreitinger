@@ -23,12 +23,12 @@
         public double UVIndex { get; set; }
 
         public bool calculateIGL() => _airQuality > 100;
-        public bool checkAvalancheRisk() => Temperature < -1.0 && Humidity > 80.0 && WindSpeed > 40.0;
+        public bool checkAvalancheRisk() => _temperature < -1.0 && _humidity > 80.0 && _windSpeed > 40.0;
         public string ForecastWeather()
         {
-            if (Temperature > 25 && Humidity < 50) return "sunny";
-            if (Temperature < 0 && Humidity > 70) return "snowy";
-            if (Humidity > 80) return "rainy";
+            if (_temperature > 25 && _humidity < 50) return "sunny";
+            if (_temperature < 0 && _humidity > 70) return "snowy";
+            if (_humidity > 80) return "rainy";
             return "Changeable weather";
         }
 
